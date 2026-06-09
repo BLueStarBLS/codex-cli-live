@@ -1,0 +1,25 @@
+# Build output
+out/
+dist/
+
+# Dependencies
+node_modules/
+
+# VS Code extension packaging
+*.vsix
+
+# Test
+.vscode-test/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code session data
+.claude/
+.claude.json
+
+# Logs
+*.log
+npm-debug.log*
