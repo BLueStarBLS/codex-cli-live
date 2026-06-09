@@ -1,0 +1,91 @@
+{
+  "name": "codex-cli-live",
+  "displayName": "Codex CLI Live",
+  "description": "Fast launch Codex CLI in VSCode",
+  "version": "1.0.0",
+  "publisher": "BiggerLittleStarBLS",
+  "icon": "media/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BLueStarBLS/codex-cli-live.git"
+  },
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codex-cli-live-sidebar",
+          "title": "Codex CLI",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "codex-cli-live-sidebar": [
+        {
+          "type": "webview",
+          "id": "codex-cli-live.sidebarView",
+          "name": "Codex CLI"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codex-cli-live.launchCLIEditor",
+        "title": "Codex CLI: Open Terminal in Editor Tab",
+        "icon": {
+          "dark": "media/icon-toolbar-dark.svg",
+          "light": "media/icon-toolbar-light.svg"
+        }
+      },
+      {
+        "command": "codex-cli-live.launchCLIBottom",
+        "title": "Codex CLI: Open Terminal in Bottom Panel"
+      }
+    ],
+    "configuration": {
+      "title": "Codex CLI Live",
+      "properties": {
+        "codex-cli-live.cliCommand": {
+          "type": "string",
+          "default": "codex",
+          "description": "The CLI command used to launch Codex."
+        }
+      }
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "command": "codex-cli-live.launchCLIEditor",
+          "group": "navigation",
+          "when": "editorIsOpen"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.120.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.56.1",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
