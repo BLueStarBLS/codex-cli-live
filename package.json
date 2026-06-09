@@ -32,7 +32,8 @@
         {
           "type": "webview",
           "id": "codex-cli-live.sidebarView",
-          "name": "Codex CLI"
+          "name": "Codex CLI",
+          "icon": "media/icon.svg"
         }
       ]
     },
